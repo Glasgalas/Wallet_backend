@@ -1,3 +1,5 @@
-const ctrl = {};
+const users = require("./users");
 
-export default ctrl;
+module.exports = {
+  users,
+};
