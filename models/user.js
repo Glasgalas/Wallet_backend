@@ -24,10 +24,6 @@ const userSchema = Schema(
       type: Number,
       default: 0,
     },
-    transactions: {
-      type: Array,
-      default: [],
-    },
   },
   { versionKey: false, timestamps: true }
 );
