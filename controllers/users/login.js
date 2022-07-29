@@ -11,11 +11,10 @@ const { SECRET_KEY } = process.env;
 const login = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
+  const { _id, name, balance } = user;
 
   if (!user || !bcrypt.compareSync(password, user.password)) {
-    throw new Unauthorized(
-      "Email is wrong or not verify, or password is wrong"
-    );
+    throw new Unauthorized("Email or password is wrong");
   }
 
   const payload = {
@@ -24,19 +23,18 @@ const login = async (req, res) => {
 
   const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "1h" });
 
-  await User.findByIdAndUpdate(user._id, { token });
+  await User.findByIdAndUpdate(_id, { token });
 
   res.status(200).send({
     status: "success",
     code: 200,
-    message: `Welcome, ${user.name}!`,
+    message: `Welcome, ${name}!`,
     data: {
       token,
       user: {
-        name: user.name,
-        email: user.email,
-        balance: user.balance,
-        transaction: user.transactions,
+        name,
+        email,
+        balance,
       },
     },
   });
