@@ -7,7 +7,7 @@ const register = async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user) {
-    throw new Conflict(`Email ${email} in use`);
+    throw new Conflict(`Email ${email} in use yet`);
   }
 
   const hashPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
@@ -20,7 +20,11 @@ const register = async (req, res) => {
   res.json({
     status: "success",
     code: 201,
-    message: "New user added",
+    message: "Success! New user added",
+    data: {
+      name,
+      email,
+    },
   });
 };
 
