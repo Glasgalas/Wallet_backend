@@ -6,8 +6,11 @@ const { auth } = require("../../middlewares");
 
 const router = express.Router();
 
+//регістрація
 router.post("/register", validation(joiRegSchema), ctrlWrapper(ctrl.register));
+// логін
 router.post("/login", validation(joiLoginSchema), ctrlWrapper(ctrl.login));
+// логаут
 router.get("/logout", auth, ctrlWrapper(ctrl.logout));
 
 module.exports = router;
