@@ -19,9 +19,9 @@ const remove = async (req, res) => {
     );
   }
 
-  res.status(200).json({
+  res.status(204).json({
     status: "success",
-    code: 200,
+    code: 204,
     message: "Transaction deleted",
     data: {
       result,

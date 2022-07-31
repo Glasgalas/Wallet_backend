@@ -35,7 +35,7 @@ const getStatistics = async (req, res) => {
     0
   );
 
-  res.status(201).json({
+  res.status(200).json({
     status: "success",
     message: "Statistics received",
     code: 200,
