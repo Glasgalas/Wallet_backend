@@ -31,9 +31,7 @@ const login = async (req, res) => {
     message: `Welcome, ${name}!`,
     data: {
       token,
-      user: name,
-      email,
-      balance,
+      user: { name, email, balance },
     },
   });
 };
