@@ -15,6 +15,7 @@ const add = async (req, res) => {
     ...req.body,
     month,
     year,
+    balance: newBalance,
     owner: _id,
   });
 
