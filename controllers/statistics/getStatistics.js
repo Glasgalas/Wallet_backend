@@ -15,6 +15,7 @@ const getStatistics = async (req, res) => {
     {
       $group: {
         _id: {
+          categoryId: "$categoryId",
           category: "$category",
           isIncome: "$isIncome",
         },

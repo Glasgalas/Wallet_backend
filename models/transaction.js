@@ -15,6 +15,10 @@ const transactionSchema = Schema(
       type: String,
       require: true,
     },
+    categoryId: {
+      type: String,
+      require: true,
+    },
     date: {
       type: String,
       require: true,
@@ -50,6 +54,7 @@ const joiSchema = Joi.object({
   }),
   isIncome: Joi.bool().required(),
   category: Joi.string().required(),
+  categoryId: Joi.string().required(),
   date: Joi.string().required(),
   comment: Joi.string().min(1).message({
     "any.required": "The comment field must consist of at least 1 letter",
