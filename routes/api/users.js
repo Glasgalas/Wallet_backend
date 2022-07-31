@@ -12,5 +12,7 @@ router.post("/register", validation(joiRegSchema), ctrlWrapper(ctrl.register));
 router.post("/login", validation(joiLoginSchema), ctrlWrapper(ctrl.login));
 // логаут
 router.get("/logout", auth, ctrlWrapper(ctrl.logout));
+// дані про користувача
+router.get("/:userId", auth, ctrlWrapper(ctrl.getCurrent));
 
 module.exports = router;
