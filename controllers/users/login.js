@@ -1,4 +1,6 @@
 const { User } = require("../../models");
+const { Transaction } = require("../../models/transaction");
+
 const { Unauthorized } = require("http-errors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -25,6 +27,12 @@ const login = async (req, res) => {
 
   await User.findByIdAndUpdate(_id, { token });
 
+  const lastTransactions = await Transaction.find({
+    owner: _id,
+  })
+    .sort({ createdAt: -1 })
+    .limit(5);
+
   res.status(200).send({
     status: "success",
     code: 200,
@@ -32,6 +40,7 @@ const login = async (req, res) => {
     data: {
       token,
       user: { name, email, balance },
+      lastTransactions,
     },
   });
 };

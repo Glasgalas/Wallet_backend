@@ -5,7 +5,7 @@ const getAll = async (req, res) => {
 
   const result = await Transaction.find({ owner: _id });
 
-  res.status(201).json({
+  res.status(200).json({
     status: "success",
     message: "Transactions received",
     code: 200,
