@@ -9,8 +9,6 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "consumes": ["application/json"],
-  "produces": ["application/json"],
   "servers": [
     {
       "url": "https://wallet-gls.herokuapp.com",
@@ -43,22 +41,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "required": ["name", "email", "password"],
-                "properties": {
-                  "email": {
-                    "type": "string",
-                    "example": "john@mail.com"
-                  },
-                  "name": {
-                    "type": "string",
-                    "example": "John"
-                  },
-                  "password": {
-                    "type": "string",
-                    "example": "john123"
-                  }
-                }
+                "$ref": "#/components/schemas/User"
               }
             }
           }
@@ -369,12 +352,12 @@
           {
             "in": "header",
             "required": true,
-            "name": "Authorization",
+            "name": "bearerAuth",
             "description": "User's token",
             "schema": { "type": "string" }
           }
         ],
-        "security": [{ "Bearer": [] }],
+        "security": [{ "bearerAuth": [] }],
         "responses": {
           "200": {
             "description": "Successful operation",
@@ -462,12 +445,12 @@
           {
             "in": "header",
             "required": true,
-            "name": "Authorization",
+            "name": "bearerAuth",
             "description": "User's token",
             "schema": { "type": "string" }
           }
         ],
-        "security": [{ "Bearer": [] }],
+        "security": [{ "bearerAuth": [] }],
         "requestBody": {
           "description": "Transaction's object",
           "required": true,
@@ -601,12 +584,12 @@
           {
             "in": "header",
             "required": true,
-            "name": "Authorization",
+            "name": "bearerAuth",
             "description": "User's token",
             "schema": { "type": "string" }
           }
         ],
-        "security": [{ "Bearer": [] }],
+        "security": [{ "bearerAuth": [] }],
         "responses": {
           "200": {
             "description": "Successful operation",
@@ -878,17 +861,17 @@
     "/api/statistics": {
       "get": {
         "tags": ["Statistics"],
-        "summary": "User's statistics",
+        "summary": "Get user's statistics",
         "parameters": [
           {
-            "in": "path",
+            "in": "query",
             "required": true,
             "name": "month",
             "description": "Number of month to filter.",
             "schema": { "type": "string" }
           },
           {
-            "in": "path",
+            "in": "query",
             "required": true,
             "name": "year",
             "description": "Number of year to filter.",
@@ -897,12 +880,12 @@
           {
             "in": "header",
             "required": true,
-            "name": "Authorization",
+            "name": "bearerAuth",
             "description": "User's token",
             "schema": { "type": "string" }
           }
         ],
-        "security": [{ "Bearer": [] }],
+        "security": [{ "bearerAuth": [] }],
         "responses": {
           "200": {
             "description": "Successful operation",
@@ -1069,7 +1052,14 @@
       },
       "Transaction": {
         "type": "object",
-        "required": ["amount", "isIncome", "category", "date", "comment"],
+        "required": [
+          "amount",
+          "isIncome",
+          "category",
+          "categoryId",
+          "date",
+          "comment"
+        ],
         "properties": {
           "amount": {
             "type": "number",
@@ -1077,7 +1067,7 @@
             "example": 99
           },
           "isIncome": {
-            "type": "Boolean",
+            "type": "boolean",
             "description": "Transaction's bool",
             "example": "false"
           },
@@ -1137,6 +1127,14 @@
             "example": "2022-07-29T21:14:53.661Z"
           }
         }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Enter JWT Bearer token"
       }
     }
   }
