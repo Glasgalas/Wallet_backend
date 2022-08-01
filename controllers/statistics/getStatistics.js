@@ -40,6 +40,8 @@ const getStatistics = async (req, res) => {
     message: "Statistics received",
     code: 200,
     data: {
+      month,
+      year,
       result,
       totalIncome,
       totalExpense,
