@@ -7,7 +7,9 @@ const add = async (req, res) => {
   const month = date.slice(0, 2);
   const year = date.slice(6);
   let newBalance;
-  isIncome ? (newBalance = balance + amount) : (newBalance = balance - amount);
+  isIncome
+    ? (newBalance = balance + Number(amount))
+    : (newBalance = balance - Number(amount));
 
   await User.findByIdAndUpdate(_id, { balance: newBalance });
 
