@@ -5,7 +5,7 @@ const categories = require("../../assets/categories");
 const add = async (req, res) => {
   const { _id, balance } = req.user;
   const { amount, isIncome, date, categoryId } = req.body;
-  const month = date.slice(0, 2);
+  const month = date.slice(3, 5);
   const year = date.slice(6);
   let newBalance;
   isIncome
