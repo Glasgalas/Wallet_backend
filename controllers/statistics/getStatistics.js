@@ -18,8 +18,9 @@ const getStatistics = async (req, res) => {
           categoryId: "$categoryId",
           category: "$category",
           isIncome: "$isIncome",
-          backgroundColor: "$backgroundColor",
+          colorCategory: "$colorCategory",
         },
+
         totalSum: { $sum: "$amount" },
       },
     },
@@ -43,7 +44,7 @@ const getStatistics = async (req, res) => {
     data: {
       month,
       year,
-      result,
+      result: transactionsExpense,
       totalIncome,
       totalExpense,
     },

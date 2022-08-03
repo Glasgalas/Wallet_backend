@@ -19,6 +19,10 @@ const transactionSchema = Schema(
       type: String,
       require: true,
     },
+    colorCategory: {
+      type: String,
+      require: true,
+    },
     date: {
       type: String,
       require: true,
