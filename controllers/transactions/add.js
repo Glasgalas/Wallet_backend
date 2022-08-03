@@ -19,12 +19,10 @@ const add = async (req, res) => {
         color = el.backgroundColor;
       }
     });
-    console.log(color);
     return color;
   };
 
   const colorCategory = getColor(categoryId);
-  console.log(colorCategory);
 
   await User.findByIdAndUpdate(_id, { balance: newBalance });
 
