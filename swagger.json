@@ -779,39 +779,48 @@
                             "expense": [
                               {
                                 "id": "2222211111",
-                                "name": "Basic"
+                                "name": "Basic",
+                                "backgroundColor": "#FED057"
                               },
                               {
                                 "id": "2222222222",
-                                "name": "Products"
+                                "name": "Products",
+                                "backgroundColor": "#FFD8D0"
                               },
                               {
                                 "id": "2222233333",
-                                "name": "Car"
+                                "name": "Car",
+                                "backgroundColor": "#FD9498"
                               },
                               {
                                 "id": "2222244444",
-                                "name": "Self"
+                                "name": "Self",
+                                "backgroundColor": "#C5BAFF"
                               },
                               {
                                 "id": "2222255555",
-                                "name": "Kids"
+                                "name": "Kids",
+                                "backgroundColor": "#6E78E8"
                               },
                               {
                                 "id": "2222266666",
-                                "name": "House"
+                                "name": "House",
+                                "backgroundColor": "#4A56E2"
                               },
                               {
                                 "id": "2222277777",
-                                "name": "Education"
+                                "name": "Education",
+                                "backgroundColor": "#81E1FF"
                               },
                               {
                                 "id": "2222288888",
-                                "name": "Leisure"
+                                "name": "Leisure",
+                                "backgroundColor": "#24CCA7"
                               },
                               {
                                 "id": "2222299999",
-                                "name": "Other"
+                                "name": "Other",
+                                "backgroundColor": "#00AD84"
                               }
                             ]
                           }
@@ -921,7 +930,8 @@
                               "_id": {
                                 "categoryId": "2222222222",
                                 "category": "Products",
-                                "isIncome": false
+                                "isIncome": false,
+                                "colorCategory": "#4A56E2"
                               },
                               "totalSum": 970
                             },
@@ -929,7 +939,8 @@
                               "_id": {
                                 "categoryId": "1111111111",
                                 "category": "Regular",
-                                "isIncome": true
+                                "isIncome": true,
+                                "colorCategory": "#4A56E2"
                               },
                               "totalSum": 999000
                             },
@@ -937,7 +948,8 @@
                               "_id": {
                                 "categoryId": "2222244444",
                                 "category": "Self",
-                                "isIncome": false
+                                "isIncome": false,
+                                "colorCategory": "#4A56E2"
                               },
                               "totalSum": 500
                             },
@@ -945,7 +957,8 @@
                               "_id": {
                                 "categoryId": "2222299999",
                                 "category": "Other",
-                                "isIncome": false
+                                "isIncome": false,
+                                "colorCategory": "#4A56E2"
                               },
                               "totalSum": 999
                             }
@@ -1080,6 +1093,11 @@
             "type": "string",
             "description": "Category's id",
             "example": "2222222222"
+          },
+          "colorCategory": {
+            "type": "string",
+            "description": "Category's color",
+            "example": "#4A56E2"
           },
           "date": {
             "type": "string",

@@ -1,9 +1,10 @@
 const { Transaction } = require("../../models/transaction");
 const { User } = require("../../models");
+const categories = require("../../assets/categories");
 
 const add = async (req, res) => {
   const { _id, balance } = req.user;
-  const { amount, isIncome, date } = req.body;
+  const { amount, isIncome, date, categoryId } = req.body;
   const month = date.slice(0, 2);
   const year = date.slice(6);
   let newBalance;
@@ -11,12 +12,25 @@ const add = async (req, res) => {
     ? (newBalance = balance + Number(amount))
     : (newBalance = balance - Number(amount));
 
+  const getColor = (categoryId) => {
+    let color;
+    categories.expense.map((el) => {
+      if (el.id === categoryId) {
+        color = el.backgroundColor;
+      }
+    });
+    return color;
+  };
+
+  const colorCategory = getColor(categoryId);
+
   await User.findByIdAndUpdate(_id, { balance: newBalance });
 
   const result = await Transaction.create({
     ...req.body,
     month,
     year,
+    colorCategory,
     balance: newBalance,
     owner: _id,
   });
