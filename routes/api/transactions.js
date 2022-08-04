@@ -8,8 +8,8 @@ const router = express.Router();
 
 // нова транзакція
 router.post("/", auth, validation(joiSchema), ctrlWrapper(ctrl.add));
-// всі транзакції
-router.get("/", auth, ctrlWrapper(ctrl.getAll));
+// останні транзакції
+router.get("/", auth, ctrlWrapper(ctrl.getLast));
 // отримання категорій
 router.get("/categories", ctrlWrapper(ctrl.getCategories));
 

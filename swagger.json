@@ -579,7 +579,7 @@
       },
       "get": {
         "tags": ["Transactions"],
-        "summary": "Get user's transactions",
+        "summary": "Get user's last 5 transactions",
         "parameters": [
           {
             "in": "header",
@@ -633,20 +633,6 @@
                             "updatedAt": "2022-07-29T21:14:53.661Z"
                           },
                           {
-                            "_id": "62e444aa1f01ddfdec60092e",
-                            "amount": 202,
-                            "isIncome": false,
-                            "category": "Car",
-                            "categoryId": "2222233333",
-                            "date": "04-09-2022",
-                            "month": 4,
-                            "year": 2022,
-                            "comment": "Gas",
-                            "owner": "62e42ea67d8857b38579497d",
-                            "createdAt": "2022-07-29T20:35:54.682Z",
-                            "updatedAt": "2022-07-29T20:35:54.682Z"
-                          },
-                          {
                             "_id": "62e444bb1f01ddfdec600932",
                             "amount": 22,
                             "isIncome": false,
@@ -671,7 +657,36 @@
                             "year": 2022,
                             "comment": "Cinema",
                             "owner": "62e42ea67d8857b38579497d",
-                            "createdAt": "2022-07-29T20:36:34.760Z"
+                            "createdAt": "2022-07-29T20:36:34.760Z",
+                            "updatedAt": "2022-07-29T20:35:54.682Z"
+                          },
+                          {
+                            "_id": "62e444aa1f01ddfdec60092e",
+                            "amount": 202,
+                            "isIncome": false,
+                            "category": "Car",
+                            "categoryId": "2222233333",
+                            "date": "04-09-2022",
+                            "month": 4,
+                            "year": 2022,
+                            "comment": "Gas",
+                            "owner": "62e42ea67d8857b38579497d",
+                            "createdAt": "2022-07-29T20:35:54.682Z",
+                            "updatedAt": "2022-07-29T20:35:54.682Z"
+                          },
+                          {
+                            "_id": "62e444aa1f01ddfdec60092e",
+                            "amount": 202,
+                            "isIncome": false,
+                            "category": "Car",
+                            "categoryId": "2222233333",
+                            "date": "04-09-2022",
+                            "month": 4,
+                            "year": 2022,
+                            "comment": "Oil",
+                            "owner": "62e42ea67d8857b38579497d",
+                            "createdAt": "2022-07-29T20:35:54.682Z",
+                            "updatedAt": "2022-07-29T20:35:54.682Z"
                           }
                         ]
                       }

@@ -1,18 +1,22 @@
 const { Transaction } = require("../../models/transaction");
 
-const getAll = async (req, res) => {
+const getLast = async (req, res) => {
   const { _id } = req.user;
 
-  const result = await Transaction.find({ owner: _id });
+  const lastTransactions = await Transaction.find({
+    owner: _id,
+  })
+    .sort({ createdAt: -1 })
+    .limit(5);
 
   res.status(200).json({
     status: "success",
     message: "Transactions received",
     code: 200,
     data: {
-      result,
+      lastTransactions,
     },
   });
 };
 
-module.exports = getAll;
+module.exports = getLast;
