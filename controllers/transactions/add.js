@@ -24,14 +24,14 @@ const add = async (req, res) => {
 
   const colorCategory = getColor(categoryId);
 
-  await User.findByIdAndUpdate(_id, { balance: newBalance });
+  await User.findByIdAndUpdate(_id, { balance: newBalance.toFixed(2) });
 
   const result = await Transaction.create({
     ...req.body,
     month,
     year,
     colorCategory,
-    balance: newBalance,
+    balance: newBalance.toFixed(2),
     owner: _id,
   });
 
