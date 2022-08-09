@@ -13,11 +13,11 @@ const { SECRET_KEY } = process.env;
 const login = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
-  const { _id, name, balance } = user;
 
   if (!user || !bcrypt.compareSync(password, user.password)) {
     throw new Unauthorized("Email or password is wrong");
   }
+  const { _id, name, balance } = user;
 
   const payload = {
     id: user._id,
