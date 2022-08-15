@@ -17,7 +17,7 @@ const transactionSchema = Schema(
     },
     categoryId: {
       type: String,
-      require: true,
+      // require: true,
     },
     colorCategory: {
       type: String,
