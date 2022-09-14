@@ -5,8 +5,9 @@ const getLast = async (req, res) => {
 
   const lastTransactions = await Transaction.find({
     owner: _id,
-  }).sort({ createdAt: -1 });
-  .limit(5);
+  })
+    .sort({ createdAt: -1 })
+    .limit(5);
 
   res.status(200).json({
     status: "success",
